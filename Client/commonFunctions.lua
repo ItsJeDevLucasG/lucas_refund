@@ -7,6 +7,7 @@ RegisterNetEvent('lucas:refund:copy')
 AddEventHandler('lucas:refund:copy', function(copyContent)
     SendNUIMessage({
         type = 'clipboard',
-        data = ''..streetHash..''
+        data = ''..copyContent..''
     })
+
 end)
