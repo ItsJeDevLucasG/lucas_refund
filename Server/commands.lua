@@ -75,7 +75,7 @@ RegisterCommand(Config.Commands.RedeemCommand.Name, function(source, args, rawCo
 end)
 
 RegisterCommand(Config.Commands.CreateRefund.Name, function(source, args, rawCommand)
-    -- if IsAceAllowed(source, acePerm) then
+    if IsAceAllowed(source, acePerm) then
         if isOnSteam then
             local adminSteam = GetPlayerIdentifierByType(source, 'steam')
 
@@ -104,8 +104,8 @@ RegisterCommand(Config.Commands.CreateRefund.Name, function(source, args, rawCom
                 end
             end)
         end
-    -- else    
-    --     TriggerClientEvent('lucas:refund:sendNotify', source, 'error', 'Je hebt geen toestemming om deze command te gebruiken.')
-    --     return
-    -- end
+    else    
+        TriggerClientEvent('lucas:refund:sendNotify', source, 'error', 'Je hebt geen toestemming om deze command te gebruiken.')
+        return
+    end
 end)
